@@ -1,12 +1,12 @@
-import {Link} from "react-router";
+import { Link } from 'react-router';
 
 function App() {
-    return (
-        <>
-            <div>Home</div>
-            <Link to="home">Concerts</Link>
-        </>
-    )
+  return (
+    <>
+      <div>Home</div>
+      <Link to="home">Concerts</Link>
+    </>
+  );
 }
 
-export default App
+export default App;
