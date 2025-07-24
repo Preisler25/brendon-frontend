@@ -1,3 +1,4 @@
+import { API_URL } from '../lib/utils.ts';
 import type Ticket from '../types/ticket.ts';
 import { createContext, useContext, useState } from 'react';
 
@@ -21,7 +22,7 @@ export default function TicketsContextProvider({ children }: { children: React.R
   const [tickets, setTickets] = useState<Ticket[]>([]);
 
   const getTickets = async () => {
-    const res = await fetch('http://localhost:3000/tickets', {
+    const res = await fetch(`${API_URL}/tickets`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

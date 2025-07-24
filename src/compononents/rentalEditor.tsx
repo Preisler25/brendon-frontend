@@ -9,6 +9,7 @@ import Stack from '@mui/joy/Stack';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
+import { API_URL } from '../lib/utils';
 
 function RentalEditor() {
   const [open, setOpen] = useState<boolean>(false);
@@ -23,7 +24,7 @@ function RentalEditor() {
     }
 
 
-    const res = await fetch('http://localhost:3000/rentals', {
+    const res = await fetch(`${API_URL}/rentals`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

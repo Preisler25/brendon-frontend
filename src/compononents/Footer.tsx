@@ -1,5 +1,6 @@
 import { useCart } from '../context/cartContext.tsx';
 import { useKassza } from '../context/kasszaContext.tsx';
+import { API_URL } from '../lib/utils.ts';
 
 function Footer() {
   const { deposit, tickets, amount, setCart, setAmount, setDeposit, removeFromCart } = useCart();
@@ -21,7 +22,7 @@ function Footer() {
     };
 
     try {
-      const res = await fetch('http://localhost:3000/checkout', {
+      const res = await fetch(`${API_URL}/checkout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

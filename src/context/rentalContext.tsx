@@ -1,3 +1,4 @@
+import { API_URL } from '../lib/utils.ts';
 import type Rental from '../types/rental.ts';
 import { createContext, type PropsWithChildren, useContext, useState } from 'react';
 
@@ -31,7 +32,7 @@ export default function RentalContextProvider({ children }: PropsWithChildren) {
 
   const getRentals = async () => {
 
-    const res = await fetch('http://localhost:3000/rentals', {
+    const res = await fetch(`${API_URL}/rentals`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +48,7 @@ export default function RentalContextProvider({ children }: PropsWithChildren) {
   };
 
   const addRental = async (rental: Rental) => {
-    const res = await fetch('http://localhost:3000/rentals', {
+    const res = await fetch(`${API_URL}/rentals`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ export default function RentalContextProvider({ children }: PropsWithChildren) {
 
   const removeRental = async (id: string) => {
     const res = await
-      fetch(`http://localhost:3000/rentals/${id}`, {
+      fetch(`${API_URL}/rentals/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -81,7 +82,7 @@ export default function RentalContextProvider({ children }: PropsWithChildren) {
   };
 
   const updateRental = async (id: string, updatedRental: Partial<Rental>) => {
-    const res = await fetch(`http://localhost:3000/rentals/${id}`, {
+    const res = await fetch(`${API_URL}/rentals/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

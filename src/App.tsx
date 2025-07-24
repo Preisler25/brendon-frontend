@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Navbar from './compononents/Navbar.tsx';
 import TicketsGrid from './compononents/TicketsGrid.tsx';
 import Footer from './compononents/Footer.tsx';
+import { API_URL } from './lib/utils.ts';
 
 function App() {
   const { setName, setKassza, token, setToken } = useKassza();
@@ -15,7 +16,7 @@ function App() {
         const storedToken = localStorage.getItem('token');
         if (storedToken !== null) {
           setToken(storedToken);
-          const res = await fetch('http://localhost:3000/auth/wai', {
+          const res = await fetch(`${API_URL}/auth/wait`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

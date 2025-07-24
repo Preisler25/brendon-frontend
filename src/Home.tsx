@@ -17,6 +17,7 @@ import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import { Key, Person, ShoppingBasketTwoTone } from '@mui/icons-material';
 import { useNavigate } from 'react-router';
 import { useKassza } from './context/kasszaContext.tsx';
+import { API_URL } from './lib/utils.ts';
 
 export default function BasicModalDialog() {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -51,7 +52,7 @@ export default function BasicModalDialog() {
       return;
     }
     const res = await fetch(
-      'http://localhost:3000/auth',
+      `${API_URL}/auth`,
       {
         method: 'POST',
         headers: {

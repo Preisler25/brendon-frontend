@@ -15,6 +15,7 @@ import Select, { selectClasses } from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import { useTickets } from '../context/ticketContext.tsx';
+import { API_URL } from '../lib/utils.ts';
 
 export default function TicketEditor() {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -36,7 +37,7 @@ export default function TicketEditor() {
       return;
     }
 
-    const response = await fetch('http://localhost:3000/tickets', {
+    const response = await fetch(`${API_URL}/tickets`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
