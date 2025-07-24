@@ -4,6 +4,6 @@ export default interface Ticket {
   weekend_price: number;
   weekday_price: number;
   deposit: number;
-  rental_id: string;
+  rental_id?: string;
   importance: number;
 }
